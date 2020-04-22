@@ -1,0 +1,19 @@
+func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+    return addTwoNumbers(l1, l2, 0)
+}
+
+func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?, _ carry: Int) -> ListNode? {
+    guard l1 != nil || l2 != nil else { 
+        return (carry > 0) ? ListNode(carry) : nil
+    }
+    
+    let l1Val = l1?.val ?? 0
+    let l2Val = l2?.val ?? 0
+    let value = l1Val + l2Val + carry
+    let rl = ListNode(value%10)
+    rl.next = addTwoNumbers(l1?.next, l2?.next, value/10)
+    return rl
+}
+
+// Runtime: 44 ms, faster than 94.31% of Swift online submissions for Add Two Numbers.
+// Memory Usage: 21.2 MB, less than 11.11% of Swift online submissions for Add Two Numbers.

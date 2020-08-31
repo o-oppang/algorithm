@@ -15,6 +15,8 @@
 * Explanation: 2-2 = 1/22 = 1/4 = 0.25
 */
 
+// https://leetcode.com/problems/powx-n/discuss/821753/C++:-High-readability-solution-(runtime:-0-ms)
+
 class Solution {
 public:
     double myPow(double x, int n) {

@@ -58,3 +58,5 @@ private:
         return dest;
     }
 };
+// Runtime: 144 ms, faster than 25.45% of C++ online submissions for Merge k Sorted Lists.
+// Memory Usage: 13.3 MB, less than 5.28% of C++ online submissions for Merge k Sorted Lists.

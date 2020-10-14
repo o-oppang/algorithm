@@ -67,3 +67,42 @@ public:
 
 // Runtime: 12 ms, faster than 95.50% of C++ online submissions for Validate Binary Search Tree.
 // Memory Usage: 22.1 MB, less than 90.55% of C++ online submissions for Validate Binary Search Tree.
+
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+
+class Solution {
+private:
+    bool validIterative(TreeNode* root) {
+		auto threshold = LONG_MIN;
+		stack<TreeNode*> st;
+		while (root || !st.empty()) {
+			while (root) {
+				st.push(root);
+				root = root->left;
+			}
+			root = st.top();
+			st.pop();
+			if (root->val <= threshold) { // threshold 왼쪽 값들 중 가장 큰 값
+				return false;
+			}
+			threshold = root->val;
+			root = root->right;
+		}
+		return true;
+	}
+public:
+	bool isValidBST(TreeNode* root) {
+		return validIterative(root);
+	}
+};

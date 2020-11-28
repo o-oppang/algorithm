@@ -1,9 +1,15 @@
+//Input: s = "ADOBECODEBANC", t = "ABC"
+//Output: "BANC"
+// while : "ADOBECODEBANC"
+//          ^  ^ ^   ^^^^
+
+
 class Solution {
 public:
     string minWindow(const string s, const string t) {
         vector<pair<size_t, size_t>> indices; //{first pos, string size}
         vector<string> remaining; // remaining letters
-        std::size_t found = s.find_first_of( t );
+        std::size_t found = s.c( t );
         while( found != string::npos )
         {
             string str = t;
@@ -30,3 +36,5 @@ public:
         return minSize.second == INT_MAX ? ""s : s.substr(minSize.first, minSize.second);
     }
 };
+
+// 265 / 266 test cases passed.

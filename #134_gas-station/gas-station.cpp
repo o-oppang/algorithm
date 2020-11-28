@@ -1,3 +1,11 @@
+// gas  = {Ga, Gb, Gc, Gd};
+// cost = {Ca, Cb, Cc, Cd};
+// a position에서 시작
+// G += (Ga - Ca) -> G >= 0 인지 확인
+// G += (Gb - Cb) -> G >= 0 인지 확인
+// ...
+// gasGage = {Ga - Ca, Gb - Cb, Gc - Cc, Gd - Cd}
+
 class Solution {
 public:
     int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
@@ -8,6 +16,7 @@ public:
             sum += gasGage[i];
         }
         if( sum < 0 ) return -1;
+        
         for( auto i = 0; i < gas.size(); ++i ) {
             if( gasGage[i] < 0 ) continue;
             sum = 0;

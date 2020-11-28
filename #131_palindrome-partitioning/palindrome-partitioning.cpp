@@ -1,8 +1,13 @@
+
+// s = "aab" 인 경우
 // {{"a"}} // 회문
 // {{"a", "a"}, {"aa"}} // 둘 다 또 회문
 // {{"a", "a", "b"}, {"aa", "b"}, {"a", "ab"}, {"aab"}} // 마지막 string 회문인지 검사
-// {{"a", "a", "b"}, {"aa", "b"} // 회문 쌍만 남게 된다.
+// {{"a", "a", "b"}, {"aa", "b"}} // 회문 쌍만 남게 된다.
 
+
+"aaaa"
+"aaa", "a"
 
 class Solution {
 public:
@@ -39,12 +44,11 @@ public:
     
 private:
     bool isPalindrome(const string& s) {
-        auto isPalindrome = true;
-        for( auto i = 0; i < s.size() / 2 && isPalindrome; ++i ) {
+        for( auto i = 0; i < s.size() / 2; ++i ) {
             if( s[i] != s[s.size() - 1 - i] )
-                isPalindrome = false;
+                return false;
         }
-        return isPalindrome;
+        return true;
     }
 };
 

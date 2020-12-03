@@ -6,8 +6,9 @@ public:
     }
     
     int largestRectangleArea(vector<int>::iterator head, vector<int>::iterator tail) {
+        int d = static_cast<int>(distance( head, tail ));
         if( distance( head, tail ) < 2 ) {
-            return max( max(*head, *tail), 
+            return max( max(*head, *tail), difference
                         min(*head, *tail) * static_cast<int>( ( distance( head, tail ) + 1 ) ) );
         }
         auto minHeightIter = min_element(head, tail + 1);

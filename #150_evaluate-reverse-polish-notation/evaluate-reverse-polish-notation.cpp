@@ -24,11 +24,13 @@ public:
                 else if( operatorToken == "*" )
                     tokenStack.push( head * back );
                 else if( operatorToken == "/" )
-                    tokenStack.push( head / static_cast<float>( back ) );
-                cout<< head << operatorToken << back << endl;
+                    tokenStack.push( head / back );
             }
             ++tokenIter;
         }
         return tokenStack.top();
     }
 };
+
+// Runtime: 72 ms
+// Memory Usage: 16.9 MB

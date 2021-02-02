@@ -1,7 +1,7 @@
 class Solution {
 public:
     string fractionToDecimal(int numerator, int denominator) {
-        stringstream ss; 
+        stringstream ss;
         if( numerator / static_cast<float>( denominator ) < 0.0 && numerator / static_cast<float>( denominator ) > -1.0  ) ss << "-";
         ss << to_string( numerator / static_cast<long>( denominator ) );
         numerator = abs( numerator );

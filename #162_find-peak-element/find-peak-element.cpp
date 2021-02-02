@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int findPeakElement(vector<int>& nums) {
+    int findPeakElement( vector<int>& nums ) {
         int peakVal = INT_MIN, peakIndex = 0;
         for( auto i = 0; i < nums.size(); ++i ) {
             if( nums[i] > peakVal ) {

@@ -1,3 +1,17 @@
+// Input:
+// s = "catsanddog"
+//         i   o  o
+//        oo
+// wordDict = ["cat", "cats", "and", "sand", "dog"]
+// Output:
+// [
+//   "cats and dog",
+//   "cat sand dog"
+// ]
+
+// {2,6, }
+// {3, }
+
 class Solution {
 public:
     vector<string> wordBreak(string s, vector<string>& wordDict) {
@@ -16,9 +30,6 @@ public:
                         if( *(item.end() - 1) == j ) {
                             auto& add = tmp.emplace_back(item); 
                             add.push_back(i);
-                            // cout<<"add " ;
-                            // for( auto i : add ) cout << i <<" ";
-                            // cout << endl;
                         }
                     } );
                     
